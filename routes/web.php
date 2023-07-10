@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CinemaController;
+use App\Http\Controllers\EnderecoCinemaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +28,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Cinema resource CRUD
+    Route::resource('cinema', CinemaController::class);
+    // Endereço resource CRUD
+    Route::resource('endereco_cinema', EnderecoCinemaController::class)
+        ->except(['destroy', 'show'])
+        ->parameters(['endereco_cinema' => 'endereco']);
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
