@@ -47,19 +47,25 @@
                                     <td>{{ $cinema->cidade ?? '--' }}</td>
                                     <td>{{ $cinema->rua ?? '--' }}</td>
                                     <td>{{ $cinema->numero ?? '--' }}</td>
-                                    <td class="flex ">
-                                        <a title="Endereço"
+                                    <td class="flex justify-center">
+                                        <a title="Endereço" 
+                                            data-te-toggle="tooltip"
                                             href="{{ route('endereco_cinema.index', ['cinema_id' => $cinema->id]) }}">
                                             <x-iconpark-localtwo-o class="w-5 h-5" />
                                         </a>
-                                        <a title="Editar" href="{{ route('cinema.edit', ['cinema' => $cinema->id]) }}">
+                                        <a title="Editar" 
+                                            data-te-toggle="tooltip"
+                                            href="{{ route('cinema.edit', ['cinema' => $cinema->id]) }}">
                                             <x-far-edit class="w-5 h-5" />
                                         </a>
                                         <a title="Visualizar"
+                                            data-te-toggle="tooltip"
                                             href="{{ route('cinema.show', ['cinema' => $cinema->id]) }}">
                                             <x-bx-show class="w-5 h-5" />
                                         </a>
-                                        <a title="Deletar" x-data=""
+                                        <a title="Deletar" 
+                                            data-te-toggle="tooltip"
+                                            x-data=""
                                             @click.prevent="$dispatch('open-modal', 'confirm-cinema-deletion')"
                                             onclick="getDeleteUrl({{ $cinema->id }})" href="#">
                                             <x-ri-delete-bin-2-line class="w-5 h-5" />
