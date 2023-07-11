@@ -3,6 +3,7 @@
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\EnderecoCinemaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SalaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('endereco_cinema', EnderecoCinemaController::class)
         ->except(['destroy', 'show'])
         ->parameters(['endereco_cinema' => 'endereco']);
+    // Sala resource CRUD
+    Route::resource('sala', SalaController::class);
 });
 
 require __DIR__ . '/auth.php';
