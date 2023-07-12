@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\EnderecoCinemaController;
+use App\Http\Controllers\FilmeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SalaController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,8 @@ Route::middleware('auth')->group(function () {
         ->parameters(['endereco_cinema' => 'endereco']);
     // Sala resource CRUD
     Route::resource('sala', SalaController::class);
+    // Filme resource CURD
+    Route::resource('filme', FilmeController::class);
 });
 
 require __DIR__ . '/auth.php';
