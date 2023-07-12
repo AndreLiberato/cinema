@@ -23,6 +23,10 @@
                     <x-nav-link :href="route('sala.index')" :active="request()->routeIs('sala.*')">
                         {{ __('Salas') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('filme.index')" :active="request()->routeIs('filme.*')">
+                        {{ __('Filmes') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -85,6 +89,10 @@
 
             <x-responsive-nav-link :href="route('sala.index')" :active="request()->routeIs('sala.*')">
                 {{ __('Salas') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('filme.index')" :active="request()->routeIs('filme.*')">
+                {{ __('Filmes') }}
             </x-responsive-nav-link>
         </div>
 
