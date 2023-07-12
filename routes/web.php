@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SalaController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SessaoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,8 +37,10 @@ Route::middleware('auth')->group(function () {
         ->parameters(['endereco_cinema' => 'endereco']);
     // Sala resource CRUD
     Route::resource('sala', SalaController::class);
-    // Filme resource CURD
+    // Filme resource CRUD
     Route::resource('filme', FilmeController::class);
+    // Sessão resource CRUD
+    Route::resource('sessao', SessaoController::class);
 });
 
 require __DIR__ . '/auth.php';
