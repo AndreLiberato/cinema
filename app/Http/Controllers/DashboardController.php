@@ -9,36 +9,18 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
-class WelcomeController extends Controller
+class DashboardController extends Controller
 {
-    public function cinemaIndex(): View
+    public function count(): View
     {
-        $sql_select_cinemas_enderecos = "SELECT c.*, e.id as endereco_id, e.estado, e.cidade, e.rua, e.numero
-                                        FROM cinema c
-                                        LEFT JOIN endereco e ON c.endereco_id = e.id";
+        $sql_count_filmes = "SELECT DISTINCT f.* FROM filme f";
+        $sql_count_cinemas = "SELECT DISTINCT c.* FROM cinema c";
+        $sql_count_salas = "SELECT DISTINCT s.* FROM sala s";
 
-        $cinemas = DB::select($sql_select_cinemas_enderecos);
+        $filmes_count = count(DB::select($sql_count_filmes));
+        $cinemas_count = count(DB::select($sql_count_cinemas));
+        $salas_count = count(DB::select($sql_count_salas));
 
-        return view('cinema.index', ['cinemas' => $cinemas]);
-    }
-
-    public function salaIndex(): View
-    {   
-        $sql_select_salas = "SELECT DISTINCT COUNT(s.*, c.nome as cinema_nome
-                            FROM sala s
-                            LEFT JOIN cinema c ON s.cinema_id = c.id";
-
-        $salas = DB::select($sql_select_salas);
-
-        return view('sala.index', ['salas' => $salas]);
-    }
-
-    public function filmeCount(): View
-    {
-        $sql_select_filmes = "SELECT DISTINCT COUNT(f.*) FROM filme f";
-
-        $filmes = DB::select($sql_select_filmes);
-
-        return view('filme.count', ['filmes' => $filmes]);
+        return view('dashboard', ['filmes_count' => $filmes_count, 'cinemas_count' => $cinemas_count, 'salas_count' => $salas_count]);
     }
 }
