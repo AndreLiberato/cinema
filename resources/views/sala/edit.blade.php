@@ -12,11 +12,11 @@
                     <section>
                         <header>
                             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                                {{ __('Adicionar nova Sala de Cinema') }}
+                                {{ __('Atualize a Sala do Cinema') }}
                             </h2>
 
                             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                {{ __('Adicione as informações da nova Sala.') }}
+                                {{ __('Adicione as informações da Sala.') }}
                             </p>
                         </header>
 

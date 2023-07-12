@@ -105,7 +105,7 @@ class SessaoController extends Controller
 
         $salas_raw = DB::select($sql_select_salas);
 
-        $salas = array_combine(array_column($salas_raw, 'id'), [array_column($salas_raw, 'numero'), array_column($salas_raw, 'cinema_nome')]);
+        $salas = array_combine(array_column($salas_raw, 'id'), array_column($salas_raw, 'numero'));
 
         $sql_select_idiomas = "SELECT * FROM idioma";
 
