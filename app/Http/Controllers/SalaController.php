@@ -10,7 +10,6 @@ use App\Http\Requests\SalaStoreRequest;
 use App\Http\Requests\SalaUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-use PhpParser\Node\Stmt\Return_;
 
 class SalaController extends Controller
 {
@@ -126,7 +125,6 @@ class SalaController extends Controller
         if ($update_sala_status) {
             return Redirect::route('sala.edit', ['sala' => $id])->with('status', 'sucesso');
         }
-
     }
 
     /**
