@@ -5,6 +5,7 @@ use App\Http\Controllers\EnderecoCinemaController;
 use App\Http\Controllers\FilmeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SalaController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
