@@ -14,7 +14,6 @@ class EnderecoUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'id' => ['integer', 'required', 'exists:endereco,id'],
             'estado' => ['string', 'required', 'max:32'],
             'cidade' => ['string', 'required', 'max:64'],
             'rua' => ['string', 'required', 'max:128'],
